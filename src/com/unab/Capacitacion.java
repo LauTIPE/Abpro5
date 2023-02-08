@@ -10,8 +10,9 @@ package com.unab;
 
 //Creacion de la clase con la declaración de sus atributos
 public class Capacitacion {
+	
 	private int identificador;
-	private String RUTCliente;
+	private String rutCliente;
 	private String dia;
 	private String hora;
 	private String lugar;
@@ -23,9 +24,10 @@ public class Capacitacion {
 	}
 
 	// Constructor con todos los atributos como parámetros
-	public Capacitacion(int identificador, String RUTCliente, String dia, String hora, String lugar, int duracion, int cantidadAsistentes) {
+	public Capacitacion(int identificador, String rutCliente, String dia, String hora, String lugar, int duracion,
+			int cantidadAsistentes) {
 		this.identificador = identificador;
-		this.RUTCliente = RUTCliente;
+		this.rutCliente = rutCliente;
 		this.dia = dia;
 		this.hora = hora;
 		this.lugar = lugar;
@@ -42,12 +44,12 @@ public class Capacitacion {
 		this.identificador = identificador;
 	}
 
-	public String getRUTCliente() {
-		return RUTCliente;
+	public String getRutCliente() {
+		return rutCliente;
 	}
 
-	public void setRUTCliente(String rUTCliente) {
-		RUTCliente = rUTCliente;
+	public void setRutCliente(String rutCliente) {
+		this.rutCliente = rutCliente;
 	}
 
 	public String getDia() {
@@ -93,14 +95,14 @@ public class Capacitacion {
 	// Método toString
 	@Override
 	public String toString() {
-		return "CAPACITACIÓN: " + "\n" +
-				"identificador:" + identificador + "\n" + 
-				"RUTCliente: " + RUTCliente + "\n" +
-				"dia: " + dia + "\n" +
-				"hora: " + hora + "\n" +
-				"lugar: " + lugar + "\n" + 
-				"duracion: " + duracion + "\n"  + 
-				"cantidadAsistentes: " + cantidadAsistentes;
+		return "CAPACITACIÓN: " + "\n" + "identificador:" + identificador + "\n" + "rutCliente: " + rutCliente + "\n"
+				+ "dia: " + dia + "\n" + "hora: " + hora + "\n" + "lugar: " + lugar + "\n" + "duracion: " + duracion
+				+ "\n" + "cantidadAsistentes: " + cantidadAsistentes;
 	}
 
-}
+	 // Método mostrarDetalle()
+    public String mostrarDetalle() {
+        return "La capacitación será en " + lugar + " a las " + hora + " del día " + dia + 
+               ", y durará " + duracion + " minutos";
+    }
+	}
