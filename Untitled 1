@@ -1,0 +1,8 @@
+Para probar la muestra de los atributos
+
+    	Cliente cliente1 = new Cliente(00000000, "Se llamará", "...?", 555555, "Modelo", 1 , "calle 1", "valpo", 18);
+    	Cliente cliente2 = new Cliente(99999999, "José Miguel", "jajaja", 123123, "Capital", 2 , "calle 2", "viña", 50);
+    	Usuario usuario1 = new Usuario("Pepe", "20 de Abril", "98765432-1");
+    	Usuario usuario2 = new Usuario("José", "11 de Septiembre", "12345678-9");
+    	Capacitacion capacitacion1 = new Capacitacion(1, "12345678-9", "Lunes", "07:00", "Sala F", 30, 20);
+    	Capacitacion capacitacion2 = new Capacitacion(2, "98765432-1", "Miercoles", "15:00", "Sala C", 5, 20);

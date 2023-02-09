@@ -3,6 +3,9 @@
  */
 package com.unab;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Cliente {
 	
 //atributo
@@ -15,7 +18,10 @@ public class Cliente {
 	private String direccion;
 	private String comuna;
 	private int edad;
-	
+	private int añoNacimiento;
+    private int mesNacimiento;
+    private int diaNacimiento;
+
 //constructor sin parametro
 	public Cliente() {}
 // constructor	
@@ -89,16 +95,29 @@ public class Cliente {
 	}
 	/**
 	 * @return the sistemaSalud
+	 * /**- obtenerSistemaSalud(): de acuerdo al valor registrado en el objeto, despliega el tipo de
+	 *sistema de salud
 	 */
-	public int getSistemaSalud() {
-		return sistemaSalud;
-	}
+
+	public void getSistemaSalud() {
+        if (sistemaSalud == 1) {
+            System.out.println("Sistema de Salud: Isapre");
+        } else if (sistemaSalud == 2) {
+            System.out.println("Sistema de Salud: Fonasa");
+        } else {
+            System.out.println("Sistema de Salud desconocido");
+        } return;
+    }
 	/**
 	 * @param sistemaSalud the sistemaSalud to set
 	 */
 	public void setSistemaSalud(int sistemaSalud) {
 		this.sistemaSalud = sistemaSalud;
 	}
+	
+	//metodo
+	
+	
 	/**
 	 * @return the direccion
 	 */
@@ -123,43 +142,55 @@ public class Cliente {
 	public void setComuna(String comuna) {
 		this.comuna = comuna;
 	}
-	/**
-	 * @return the edad
+	
+	/*obtenerNombre(): retorna un String con el nombre completo del cliente (nombres +
+	 *apellidos)
 	 */
-	public int getEdad() {
-		return edad;
-	}
-	/**
-	 * @param edad the edad to set
-	 */
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
+	 public String obtenerNombre() {
+	        return nombres + " " + apellidos;
+	    }
+	 //calcular la edad con la fecha de nacimiento
+	 
+	 public int getEdad() {
+		    return edad;
+		}
 
+		public static int calcularEdad(int año, int mes, int dia) {
+		    if (año > 0 && mes > 0 && mes <= 12 && dia > 0 && dia <= 31) {
+		        LocalDate fechaNacimiento = LocalDate.of(año, mes, dia);
+		        LocalDate hoy = LocalDate.now();
+		        Period periodo = Period.between(fechaNacimiento, hoy);
+		        return periodo.getYears();
+		    } else {
+		        System.out.println("Fecha de nacimiento inválida.");
+		        return -1;
+		    }
+		}
+
+		public void setEdad(int año, int mes, int dia) {
+		    int edadCalculada = calcularEdad(año, mes, dia);
+		    if (edadCalculada != -1) {
+		        this.edad = edadCalculada;
+		    } else {
+		        System.out.println("No se pudo establecer la edad.");
+		    }
+		}
+
+
+	    
 //metodo toString
 		
 	public String toString() {
-		
-		    String sistemaSaludString;
-		    if (sistemaSalud == 1) {
-		        sistemaSaludString = "Sistema de Salud: Isapre " + '\n';
-		    } else if (sistemaSalud == 2) {
-		        sistemaSaludString = "Sistema de Salud: Fonasa " + '\n';
-		    } else {
-		        sistemaSaludString = "";
-		    }
-		    return "CLIENTE: " + '\n' +
-	            "RUT: " + RUT + '\n' +
-	            "nombres: " + nombres + '\n' +
-	            "apellidos: " + apellidos + '\n' +
-	            "telefono: " + telefono + '\n' +
-	            "afp: " + afp + '\n' +
-	            sistemaSaludString +
-	            "direccion: " + direccion + '\n' +
-	            "comuna: " + comuna + '\n' +
-	            "edad: " + edad;
+	  
+	    return "Cliente: " + '\n' +
+	        "RUT: " + RUT + '\n' +
+	        "nombres: '" + nombres + '\n' +
+	        "apellidos: " + apellidos + '\n' +
+	        "telefono: " + telefono + '\n' +
+	        "afp: " + afp + '\n' +
+	        "sistemaSalud: " + sistemaSalud + '\n' +
+	        "direccion: " + direccion + '\n' +
+	        "comuna: " + comuna + '\n' +
+	        "edad: " + edad;
 	}
-
-	
-	
 }

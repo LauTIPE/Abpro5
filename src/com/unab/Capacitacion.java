@@ -10,6 +10,7 @@ package com.unab;
 
 //Creacion de la clase con la declaración de sus atributos
 public class Capacitacion {
+	
 	private int identificador;
 	private String rutCliente;
 	private String dia;
@@ -99,4 +100,9 @@ public class Capacitacion {
 				+ "\n" + "cantidadAsistentes: " + cantidadAsistentes;
 	}
 
-}
+	 // Método mostrarDetalle()
+    public String mostrarDetalle() {
+        return "La capacitación será en " + lugar + " a las " + hora + " del día " + dia + 
+               ", y durará " + duracion + " minutos";
+    }
+	}
